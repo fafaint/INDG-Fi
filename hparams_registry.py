@@ -7,7 +7,7 @@ def _hparams(algorithm, dataset, random_state):
     hparams = {}
 
     hparams["optimizer"] = ("sgd", "sgd")
-    hparams["lr"] = (0.05, 10 ** random_state.uniform(-5, -3.5))
+    hparams["lr"] = (0.005, 10 ** random_state.uniform(-5, -3.5))
     hparams["weight_decay"] = (5e-4, 10 ** random_state.uniform(-6, -2))
     
     hparams["adam_beta1"]=(0.9, 10 ** random_state.uniform(-6, -2))#        hparams["beta1"] = (0.5, random_state.choice([0.0, 0.5]))
