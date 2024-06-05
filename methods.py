@@ -94,7 +94,7 @@ class INDG(Algorithm):
 
     def forward_s(self, x):
         # learning style network on randomized gesture
-        return self.classifier_s(self.randomize(self.featurizer(x), "gesture"))
+        return self.classifier_s(self.randomize(self.featurizer(x), "None"))
 
     def randomize(self, x, what="style", eps=1e-5):#torch.Size([128, 512])
         sizes = x.size()
@@ -116,10 +116,11 @@ class INDG(Algorithm):
             x = (x - mean) / (var + eps).sqrt()
             x = x * (var + eps).sqrt() + mean
         else:
-            x = alpha * x + (1 - alpha) * x[idx_swap]
-            
-            x = (x - mean) / (var + eps).sqrt()
-            x = x * (var + eps).sqrt() + mean
+            # x = alpha * x + (1 - alpha) * x[idx_swap]
+            #
+            # x = (x - mean) / (var + eps).sqrt()
+            # x = x * (var + eps).sqrt() + mean
+            pass
 
         
         return x.view(*sizes)
